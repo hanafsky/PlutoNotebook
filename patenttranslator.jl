@@ -178,7 +178,7 @@ end
 begin
 	patentname=split(GoogleTrans.translate(title,"ja"), "\n")[1]
 	md"""
-	**$(patentname))**
+	**$(patentname)**
 	"""
 end
 
