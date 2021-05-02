@@ -146,7 +146,7 @@ md"""
 # ╔═╡ 4734d9ac-652b-4ea6-8916-ac1dca480d9f
 begin
 	lang=Dict(["英語"=>"en","中国語"=>"zh-CN","日本語"=>"ja"]);
-	claim = Dict(["独立項"=>".claims .claim .claim", "全請求項"=>".claims", "従属項"=>".claims .claim-dependent .claim"])
+	claim = Dict(["独立項"=>".claims .claim .claim","全請求項"=>"""div[id^="CLM"]""", "従属項"=>".claims .claim-dependent .claim"])
 	patentAddress="https://patents.google.com/patent/$(patentnum)/";
 	targetlanguage=lang[outputLang]
 	r=HTTP.request("GET", patentAddress);
@@ -194,7 +194,7 @@ end
 
 # ╔═╡ 2da4834a-e607-409c-b81f-b25001d106e3
 HTML() do io
-	translateClaims=GoogleTrans.translate.(claims, targetlanguage)
+	translateClaims=GoogleTrans.translate(claims, targetlanguage)
 	table = "<table><tr><th>原文</th><th>翻訳</th></tr>"
 	for (i,claim) in enumerate(claims)
 		table *= "<tr><td>$(claim)</td><td>$(translateClaims[i])</td></tr>"
@@ -207,7 +207,7 @@ end
 # ╟─58743e57-0dba-45c7-bf0b-05985a678213
 # ╠═286b2de0-9a86-11eb-094d-3517eda223ee
 # ╟─912337d0-8ea1-4d34-b4ce-6f2548cd30f6
-# ╟─0393eb50-7f63-4172-b6aa-21f6238aa08d
+# ╠═0393eb50-7f63-4172-b6aa-21f6238aa08d
 # ╟─d7054724-8626-4e02-bc22-b0f7d0369793
 # ╟─ce5f4171-323e-43fe-a8b0-9e0458962d56
 # ╟─9b0ad6e4-b9b8-44ff-8027-5073d71ca61c
