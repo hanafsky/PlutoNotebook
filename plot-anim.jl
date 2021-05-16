@@ -14,7 +14,15 @@ macro bind(def, element)
 end
 
 # ╔═╡ 715e1ede-b5d4-11eb-3271-136c85c6bb70
-using Plots, PlutoUI
+begin
+    import Pkg
+    Pkg.activate(mktempdir())
+    Pkg.add([
+        Pkg.PackageSpec(name="Plots", version="1"),
+        Pkg.PackageSpec(name="PlutoUI", version="0.7"),
+    ])
+    using Plots, PlutoUI
+end
 
 # ╔═╡ daae9b6e-bdcc-4dad-95e3-e560ae6b538e
 md"""
