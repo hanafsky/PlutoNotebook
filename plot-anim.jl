@@ -42,7 +42,7 @@ begin
 end;
 
 # ╔═╡ 596f3f98-e563-436e-a73b-cbed476b1edb
-@bind i Clock()
+@bind i Clock(0.02,false,false)
 
 # ╔═╡ 1ba6b90f-677f-4818-beb5-09f26058800c
 let 
